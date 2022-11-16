@@ -50,3 +50,48 @@ li button {
     color: #fafafa;
     font-weight: bolder;
 }
+
+@media only screen 
+and (device-width: 450px) 
+and (device-height: 900px){
+    #add #submit{
+        width: 20%;
+        border-radius: 1px;
+        justify-content: center;
+
+    }
+
+    li {
+        font-size: 9px;
+        color: #454851;
+        font-family: 'Courier New', Courier, monospace;
+        justify-content: center;
+    }
+    
+    li input {
+        margin-left: 9px;
+        justify-content: center;
+    }
+    
+    li button {
+        margin-left: 6px;
+        justify-content: center;
+        
+    }
+    
+    #add {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        justify-content: center;
+    }
+    
+    #add input {
+        font-size: 10px;
+        color: #454851;
+        font-family: 'Courier New', Courier, monospace;
+        margin-right: 2px;
+        justify-content: center;
+    }
+
+}
