@@ -1,0 +1,52 @@
+#list {
+    list-style: none;
+}
+
+li {
+    font-size: 18px;
+    color: #454851;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+li input {
+    margin-left: 18px;
+}
+
+li button {
+    margin-left: 12px;
+}
+
+#add {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#add input {
+    font-size: 20px;
+    color: #454851;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 4px;
+}
+
+#add #task {
+    border-color: transparent;
+    border-bottom-color: #454851;
+}
+
+#add #task::placeholder {
+    color: #a4a5aa;
+}
+
+#add #task:focus {
+    outline: none;
+}
+
+#add #submit {
+    background-color: green;
+    border-color: green;
+    width: 120px;
+    border-radius: 3px;
+    color: #fafafa;
+    font-weight: bolder;
+}
