@@ -44,79 +44,79 @@ function add(event) {
 function adding(todo){
     var todoText = todo.text;
     var todoId = todo.id;
-    var singleToDO = document.createElement("LI");
-    singleToDO.innerHTML = todo.text;
+    var instance = document.createElement("LI");
+    instance.innerHTML = todo.text;
     console.log(todo.text);
-    singleToDO.setAttribute("id", todo.id);
+    instance.setAttribute("id", todo.id);
     
     var remove = document.createElement("button");
     remove.innerHTML = "&#120;";
-    remove.style.borderColor = "transparent";
+    remove.style.borderColor = "blue";
     remove.style.backgroundColor = "transparent";
     remove.style.color = "red";
-    remove.style.fontSize = "34px";
+    remove.style.fontSize = "36px";
     remove.style.position = "relative";
-    remove.style.top = "4px";
+    remove.style.top = "6px";
     remove.setAttribute("class", "remove");
     var toDoList = document.getElementById("list");
     
-    var checkBut = document.createElement("input");
-    checkBut.setAttribute("type", "checkbox");
-    checkBut.classList.add("done");
-    checkBut.style.position = "relative";
-    checkBut.style.top = "5px";
-    checkBut.style.left = "5px";
-    checkBut.style.width = "20px";
-    checkBut.style.height = "20px";
-    checkBut.style.borderColor = "#454851";
+    var checked = document.createElement("input");
+    checked.setAttribute("type", "checkbox");
+    checked.classList.add("done");
+    checked.style.position = "relative";
+    checked.style.top = "7px";
+    checked.style.left = "7px";
+    checked.style.width = "25px";
+    checked.style.height = "25px";
+    checked.style.borderColor = "blue";
     
-    console.log("Got it!");
+    console.log("Received!");
     
    
 
     
-    singleToDO.setAttribute("id", todoId);
-    checkBut.setAttribute("class", "checkBut");
-    singleToDO.setAttribute("checkBut", checkBut);
-    singleToDO.setAttribute("remove", remove);
-    toDoList.appendChild(singleToDO);
-    singleToDO.appendChild(checkBut);
-    singleToDO.appendChild(remove);
+    instance.setAttribute("id", todoId);
+    checked.setAttribute("class", "checked");
+    instance.setAttribute("checked", checked);
+    instance.setAttribute("remove", remove);
+    toDoList.appendChild(instance);
+    instance.appendChild(checked);
+    instance.appendChild(remove);
    
-    checkBut.addEventListener("click", function(event){finishToDo(todoId)});
-    remove.addEventListener("click", function(event){removeToDo(todoId)});
+    checked.addEventListener("click", function(event){crossoff(todoId)});
+    remove.addEventListener("click", function(event){removeInstance(todoId)});
     document.getElementById("task").value='';
     if (todo.completed == true) {
       document.getElementById(todoId).style.textDecoration = "line-through";
     } 
 }
 
-function removeToDo(todoId) {
-  var removeId = todoId;
+function removeInstance(todoId) {
+  var idRemoval = todoId;
   var ht5 = new XMLHttpRequest();
   
   ht5.onreadystatechange = function() {
    
     if (this.readyState == 4 && this.status == 200) {
-      console.log(document.getElementById(removeId))
-      document.getElementById(removeId).remove();
+      console.log(document.getElementById(idRemoval))
+      document.getElementById(idRemoval).remove();
     } else if (this.readyState == 4) {
           console.log(this.responseText);
     }
   };
-  ht5.open("DELETE", "https://cse204.work/todos/" + removeId, true);
+  ht5.open("DELETE", "https://cse204.work/todos/" + idRemoval, true);
   ht5.setRequestHeader("Content-type", "application/json");
   ht5.setRequestHeader("x-api-key", apiKey);
   ht5.send();
 }
 
-function finishToDo(todoId){
-  var completeId = todoId;
+function crossoff(todoId){
+  var totalId = todoId;
   var data = {
     "completed": true
   }
-  document.getElementById(completeId).classList.add("done");
-  document.getElementById(completeId).style.textDecoration = "line-through";
+  document.getElementById(totalId).classList.add("done");
+  document.getElementById(totalId).style.textDecoration = "line-through";
   var ht4 = new XMLHttpRequest();
  
   ht4.onreadystatechange = function() {
